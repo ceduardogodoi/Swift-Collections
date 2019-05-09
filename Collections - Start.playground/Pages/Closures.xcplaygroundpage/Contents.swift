@@ -13,11 +13,33 @@ func printResultOf(_ a: Int, _ b: Int, operation: Operate) {
 }
 printResultOf(5, 3, operation: add)
 
-// TODO: Try Closures!
+// let multiply: (Int, Int) -> Int = { (a: Int, b: Int) -> Int in
+//     return a * b
+// }
 
+let multiply: (Int, Int) -> Int = { (a, b) in
+    a * b
+}
 
+// let multiply: (Int, Int) -> Int = {
+//     $0 * $1
+// }
 
+let divide: Operate = { a, b in
+    return a / b
+}
 
+multiply(4, 2)
+
+printResultOf(6, 2, operation: multiply)
+printResultOf(92, 3, operation: divide)
+// printResultOf(4, 2, operation: { $0 - $1 })
+printResultOf(4, 2) { $0 - $1 } // trailing closure syntax
+
+let voidClosure: () -> Void = {
+    print("Yay, Swift!")
+}
+voidClosure()
 
 
 
@@ -29,7 +51,11 @@ let incrementCount = {
 }
 /////////////
 
-// TODO: Try `incrementCount`
+incrementCount()
+incrementCount()
+incrementCount()
+incrementCount()
+count
 
 
 /////////////
@@ -43,7 +69,13 @@ func makeCountingClosure() -> () -> Int {
 }
 ////////////
 
-// TODO: Try `makeCountingClosure()`
+let counter1 = makeCountingClosure()
+let counter2 = makeCountingClosure()
 
+counter1()
+counter2()
+counter1()
+counter2()
+counter2()
 
 //: [Next](@next)
